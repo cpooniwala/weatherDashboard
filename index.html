@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap CSS CDN  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="page-header" style="background-color: #7A7F99;">
+            <h1 class="text-center" style="color: white;">Weather Dashboard </h1>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for a City" id="search-query">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default" id="run-search">
+                        <i class="fa fa-search"></i> Search</button>
+                    </span>
+                </div>
+                <div class="list-group" id="city-history">
+                </div>
+            </div>  
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                City
+                            </div>
+                            <div class="card-body">
+                                <p>Temperature</p>
+                                <p>Humidity</p>
+                                <p>Wind Speed</p>
+                                <p>UV Index</p> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+  <!-- jQuery JS -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Code to the JavaScript File -->
+  <script src="weatherscript.js"></script>
+</html>
