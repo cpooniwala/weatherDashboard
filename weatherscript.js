@@ -41,14 +41,14 @@ $(document).ready(function(){
    
       function buildQueryURLDay(city){
         //Create a function to build the Query URL to request the current weather        
-        var queryURL = "https:/api.openweathermap.org/data/2.5/weather?q=";
+        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=";
         queryURL =  queryURL+city+"&APPID="+apiKey;
         return queryURL;
     }
 
     function buildQueryURLForecast(city){    
         //Create a function to build the Query URL to request the current forecast    
-        var queryURL = "https:/api.openweathermap.org/data/2.5/forecast?q=";
+        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=";
         queryURL =  queryURL+city+"&APPID="+apiKey;
         return queryURL;
     }
@@ -56,7 +56,7 @@ $(document).ready(function(){
     function buildQueryURLUV(lat,lon){
         //Create a function to build the Query URL to request the current weather
         //http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}     
-        var queryURL = "https:/api.openweathermap.org/data/2.5/uvi?appid=";
+        var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=";
         queryURL =  queryURL+apiKey+"&"+"lat="+lat+"&lon="+lon;
         return queryURL;
     }
