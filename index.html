@@ -32,16 +32,63 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" id ="hero-city-name">
                                 City
                             </div>
                             <div class="card-body">
-                                <p>Temperature</p>
-                                <p>Humidity</p>
-                                <p>Wind Speed</p>
-                                <p>UV Index</p> 
+                                <p id="hero-temperature">Temperature</p>
+                                <p id="hero-humidity">Humidity</p>
+                                <p id="hero-wind-speed">Wind Speed</p>
+                                <p id="hero-uv-index">UV Index</p> 
                             </div>
                         </div>
+                        <div class="card">
+                            <div class="card-header" id="five-day-forecast-header">5 Day</div>
+                            <div class="card-body">
+                                <div class="card-deck">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h7 class="card-title" id="day-0-date">Card Title</h7>
+                                            <p class="card-text small" id="day-0-icon">icon</p>
+                                            <p class="card-text small" id="day-0-temperature">temp</p>
+                                            <p class="card-text small" id="day-0-humidity">humidity</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h7 class="card-title" id="day-1-date">Card Title</h7>
+                                            <p class="card-text small" id="day-1-icon">icon</p>
+                                            <p class="card-text small" id="day-1-temperature">temp</p>
+                                            <p class="card-text small" id="day-1-humidity">humidity</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h7 class="card-title" id="day-2-date">Card Title</h7>
+                                            <p class="card-text small" id="day-2-icon">icon</p>
+                                            <p class="card-text small" id="day-2-temperature">temp</p>
+                                            <p class="card-text small" id="day-2-humidity">humidity</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h7 class="card-title" id="day-3-date">Card Title</h7>
+                                            <p class="card-text small" id="day-3-icon">icon</p>
+                                            <p class="card-text small" id="day-3-temperature">temp</p>
+                                            <p class="card-text small" id="day-3-humidity">humidity</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h7 class="card-title" id="day-4-date">Card Title</h7>
+                                            <p class="card-text small" id="day-4-icon">icon</p>
+                                            <p class="card-text small" id="day-4-temperature">temp</p>
+                                            <p class="card-text small" id="day-4-humidity">humidity</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -63,6 +110,10 @@
   <!-- jQuery JS -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Moment JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
   <!-- Code to the JavaScript File -->
   <script src="weatherscript.js"></script>
 </html>
