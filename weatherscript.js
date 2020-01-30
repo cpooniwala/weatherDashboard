@@ -2,13 +2,13 @@ $(document).ready(function(){
     var citiesArr = [];
     var apiKey = "aae16a9b531aff6c4a2ca4aa15a3bed3";
     init()
-    dailyAJAXCall(citiesArr[citiesArr.length-1]);
-    forecastAJAXCall(citiesArr[citiesArr.length-1]);
     function storeCities(){
         // Stringify and set "cities" key in localStorage to citiesArr array
         localStorage.setItem("cities", JSON.stringify(citiesArr));
     }
-    
+    dailyAJAXCall(citiesArr[citiesArr.length-1]);
+    forecastAJAXCall(citiesArr[citiesArr.length-1]);    
+
     function renderCities(){
         //Clear the Existing Buttons
         $("#city-history").empty();
@@ -58,7 +58,6 @@ $(document).ready(function(){
         //http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}     
         var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=";
         queryURL =  queryURL+apiKey+"&"+"lat="+lat+"&lon="+lon;
-        console.log(queryURL);
         return queryURL;
     }
 
@@ -68,12 +67,16 @@ $(document).ready(function(){
         return f
     }
     function updateHero(dailyData){
+        //console.log(dailyData);
         var heroTemp = toF(dailyData.main.temp);
         var heroHumidity = dailyData.main.humidity;
         var heroWindSpeed = dailyData.wind.speed;
         var heroCityName = dailyData.name;
+        var heroIcon = dailyData.weather[0].icon;
+        var heroIconURl = "http://openweathermap.org/img/w/" + heroIcon + ".png";
 
         $("#hero-city-name").html(heroCityName + " - " + moment().format("dddd, MMMM Do YYYY"));
+        $("#hero-city-icon").html("<img src='" + heroIconURl  + "'>");
         $("#hero-temperature").html("Temperature: " +heroTemp + " °F");
         $("#hero-humidity").html("Humidity: " +heroHumidity + "%");
         $("#hero-wind-speed").html("Wind Speed: " +heroWindSpeed + " MPH");
@@ -92,56 +95,68 @@ $(document).ready(function(){
     }
 
     function updateForecast(forecastData){
-        console.log(forecastData);
+        //console.log(forecastData);
         day0 ={
             temperature: toF(forecastData.list[0].main.temp),
             humidity: forecastData.list[0].main.humidity,
-            icon: forecastData.list[0].weather.icon
+            icon: forecastData.list[0].weather[0].icon
         }
+        var iconUrl0 = "http://openweathermap.org/img/w/" + day0.icon + ".png";
+
         $("#day-0-date").html(moment().format("MM/ DD/ YY"));
         $("#day-0-temperature").html("Temp: " +day0.temperature + " °F");
         $("#day-0-humidity").html("Humidity: " +day0.humidity + "%");
-        $("#day-0-icon").html(day0.icon);
+        $("#day-0-icon").html("<img src='" + iconUrl0  + "'>");
 
         day1 ={
             temperature: toF(forecastData.list[1].main.temp),
             humidity: forecastData.list[1].main.humidity,
-            icon: forecastData.list[1].weather.icon
+            icon: forecastData.list[1].weather[0].icon
         }
+        var iconUrl1 = "http://openweathermap.org/img/w/" + day1.icon + ".png";
+
         $("#day-1-date").html(moment().add(1, 'days').format("MM/ DD/ YY"));
         $("#day-1-temperature").html("Temp: " +day1.temperature + " °F");
         $("#day-1-humidity").html("Humidity: " +day1.humidity + "%");
-        $("#day-1-icon").html(day1.icon);
+        $("#day-1-icon").html("<img src='" + iconUrl1  + "'>");
 
         day2 ={
             temperature: toF(forecastData.list[2].main.temp),
             humidity: forecastData.list[2].main.humidity,
-            icon: forecastData.list[2].weather.icon
+            icon: forecastData.list[2].weather[0].icon
         }
+
+        var iconUrl2 = "http://openweathermap.org/img/w/" + day2.icon + ".png";
+
+
         $("#day-2-date").html(moment().add(2, 'days').format("MM/ DD/ YY"));
         $("#day-2-temperature").html("Temp: " +day2.temperature + " °F");
         $("#day-2-humidity").html("Humidity: " +day2.humidity + "%");
-        $("#day-2-icon").html(day2.icon);
+        $("#day-2-icon").html("<img src='" + iconUrl2  + "'>");
 
         day3 ={
             temperature: toF(forecastData.list[3].main.temp),
             humidity: forecastData.list[3].main.humidity,
-            icon: forecastData.list[3].weather.icon
+            icon: forecastData.list[3].weather[0].icon
         }
+        var iconUrl3 = "http://openweathermap.org/img/w/" + day3.icon + ".png";
+
         $("#day-3-date").html(moment().add(3, 'days').format("MM/ DD/ YY"));
         $("#day-3-temperature").html("Temp: " +day3.temperature + " °F");
         $("#day-3-humidity").html("Humidity: " +day3.humidity + "%");
-        $("#day-3-icon").html(day3.icon);
+        $("#day-3-icon").html("<img src='" + iconUrl3  + "'>");
 
         day4 ={
             temperature: toF(forecastData.list[4].main.temp),
             humidity: forecastData.list[4].main.humidity,
-            icon: forecastData.list[4].weather.icon
+            icon: forecastData.list[4].weather[0].icon
         }
+        var iconUrl4 = "http://openweathermap.org/img/w/" + day4.icon + ".png";
+
         $("#day-4-date").html(moment().add(4, 'days').format("MM/ DD/ YY"));
         $("#day-4-temperature").html("Temp: " +day4.temperature + " °F");
         $("#day-4-humidity").html("Humidity: " +day4.humidity + "%");
-        $("#day-4-icon").html(day4.icon);
+        $("#day-4-icon").html("<img src='" + iconUrl4  + "'>");
         
 
 
