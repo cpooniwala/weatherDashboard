@@ -57,7 +57,7 @@ $(document).ready(function(){
         //Create a function to build the Query URL to request the current weather
         //http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}     
         var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=";
-        queryURL =  queryURL+apiKey+"&"+"lat="+lat+"&lon="+lon;
+        queryURL =  queryURL+apiKey+"&lat="+lat+"&lon="+lon;
         return queryURL;
     }
 
@@ -84,6 +84,7 @@ $(document).ready(function(){
         var lat = dailyData.coord.lat;
         var lon = dailyData.coord.lon;
         var queryURL = buildQueryURLUV(lat,lon);
+        console.log(queryURL);
         //Ajax call to open weather API
         $.ajax({
             url: queryURL,
@@ -93,9 +94,8 @@ $(document).ready(function(){
               $("#hero-uv-index").html("UV Index " + heroUVIndex)
           })
     }
-
-    function updateForecast(forecastData){
-        //console.log(forecastData);
+/*function manualUpdateForecast(
+    {
         day0 ={
             temperature: toF(forecastData.list[0].main.temp),
             humidity: forecastData.list[0].main.humidity,
@@ -104,7 +104,7 @@ $(document).ready(function(){
         var iconUrl0 = "https://openweathermap.org/img/w/" + day0.icon + ".png";
 
         $("#day-0-date").html(moment().format("MM/ DD/ YY"));
-        $("#day-0-temperature").html("Temp: " +day0.temperature + " °F");
+        $("#day-0-temperature").html("Temp: " +day0.temperature + " °F")
         $("#day-0-humidity").html("Humidity: " +day0.humidity + "%");
         $("#day-0-icon").html("<img src='" + iconUrl0  + "'>");
 
@@ -158,20 +158,25 @@ $(document).ready(function(){
         $("#day-4-humidity").html("Humidity: " +day4.humidity + "%");
         $("#day-4-icon").html("<img src='" + iconUrl4  + "'>");
         
+    }
+)*/
 
+    function updateForecast(forecastData){
+        //console.log(forecastData);
 
-/*         for (i=0; i<4; i++){
-            day[i] ={
-                temperature: toF(forecastData.list[i].main.temp),
-                humidity: forecastData.list[i].main.humidity,
-                icon: forecastData.list[i].weather.icon
-            }
-            $("#day"+[i]+"date").html(moment().format("MM/ DD/ YY"));
-            $("#day"+[i]+"temperature").html("Temp: " +day[i].temperature + " °F");
-            $("#day-zero-humidity").html("Humidity: " +dayZero.humidity + "%");
-            $("#day-zero-icon").html(dayZero.icon);
+         for (i=0; i<=4; i++){
+            
+                var temperature = toF(forecastData.list[i].main.temp);
+                var humidity = forecastData.list[i].main.humidity;
+                var icon = forecastData.list[i].weather[0].icon;
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
+            
+            $("#day-"+[i]+"-date").html(moment().add(i, 'days').format("MM/ DD/ YY"));
+            $("#day-"+[i]+"-temperature").html("Temp: " +temperature + " °F");
+            $("#day-"+[i]+"-humidity").html("Humidity: " +humidity + "%");
+            $("#day-"+[i]+"-icon").html("<img src='" + iconURL  + "'>");
     
-        } */
+        } 
     }
     
     $("#run-search").on("click",function(event){
