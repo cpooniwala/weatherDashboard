@@ -41,14 +41,14 @@ $(document).ready(function(){
    
       function buildQueryURLDay(city){
         //Create a function to build the Query URL to request the current weather        
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=";
         queryURL =  queryURL+city+"&APPID="+apiKey;
         return queryURL;
     }
 
     function buildQueryURLForecast(city){    
         //Create a function to build the Query URL to request the current forecast    
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=";
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=";
         queryURL =  queryURL+city+"&APPID="+apiKey;
         return queryURL;
     }
@@ -56,7 +56,7 @@ $(document).ready(function(){
     function buildQueryURLUV(lat,lon){
         //Create a function to build the Query URL to request the current weather
         //http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}     
-        var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=";
+        var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=";
         queryURL =  queryURL+apiKey+"&"+"lat="+lat+"&lon="+lon;
         return queryURL;
     }
@@ -73,7 +73,7 @@ $(document).ready(function(){
         var heroWindSpeed = dailyData.wind.speed;
         var heroCityName = dailyData.name;
         var heroIcon = dailyData.weather[0].icon;
-        var heroIconURl = "http://openweathermap.org/img/w/" + heroIcon + ".png";
+        var heroIconURl = "https://openweathermap.org/img/w/" + heroIcon + ".png";
 
         $("#hero-city-name").html(heroCityName + " - " + moment().format("dddd, MMMM Do YYYY"));
         $("#hero-city-icon").html("<img src='" + heroIconURl  + "'>");
@@ -101,7 +101,7 @@ $(document).ready(function(){
             humidity: forecastData.list[0].main.humidity,
             icon: forecastData.list[0].weather[0].icon
         }
-        var iconUrl0 = "http://openweathermap.org/img/w/" + day0.icon + ".png";
+        var iconUrl0 = "https://openweathermap.org/img/w/" + day0.icon + ".png";
 
         $("#day-0-date").html(moment().format("MM/ DD/ YY"));
         $("#day-0-temperature").html("Temp: " +day0.temperature + " °F");
@@ -113,7 +113,7 @@ $(document).ready(function(){
             humidity: forecastData.list[1].main.humidity,
             icon: forecastData.list[1].weather[0].icon
         }
-        var iconUrl1 = "http://openweathermap.org/img/w/" + day1.icon + ".png";
+        var iconUrl1 = "https://openweathermap.org/img/w/" + day1.icon + ".png";
 
         $("#day-1-date").html(moment().add(1, 'days').format("MM/ DD/ YY"));
         $("#day-1-temperature").html("Temp: " +day1.temperature + " °F");
@@ -126,7 +126,7 @@ $(document).ready(function(){
             icon: forecastData.list[2].weather[0].icon
         }
 
-        var iconUrl2 = "http://openweathermap.org/img/w/" + day2.icon + ".png";
+        var iconUrl2 = "https://openweathermap.org/img/w/" + day2.icon + ".png";
 
 
         $("#day-2-date").html(moment().add(2, 'days').format("MM/ DD/ YY"));
@@ -139,7 +139,7 @@ $(document).ready(function(){
             humidity: forecastData.list[3].main.humidity,
             icon: forecastData.list[3].weather[0].icon
         }
-        var iconUrl3 = "http://openweathermap.org/img/w/" + day3.icon + ".png";
+        var iconUrl3 = "https://openweathermap.org/img/w/" + day3.icon + ".png";
 
         $("#day-3-date").html(moment().add(3, 'days').format("MM/ DD/ YY"));
         $("#day-3-temperature").html("Temp: " +day3.temperature + " °F");
@@ -151,7 +151,7 @@ $(document).ready(function(){
             humidity: forecastData.list[4].main.humidity,
             icon: forecastData.list[4].weather[0].icon
         }
-        var iconUrl4 = "http://openweathermap.org/img/w/" + day4.icon + ".png";
+        var iconUrl4 = "https://openweathermap.org/img/w/" + day4.icon + ".png";
 
         $("#day-4-date").html(moment().add(4, 'days').format("MM/ DD/ YY"));
         $("#day-4-temperature").html("Temp: " +day4.temperature + " °F");
