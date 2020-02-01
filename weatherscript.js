@@ -61,7 +61,6 @@ $(document).ready(function(){
         return queryURL;
     }
 
-
     function toF(kelvin){
         var f = Math.round(((kelvin-273.15)*1.8)+32)
         return f
@@ -84,7 +83,7 @@ $(document).ready(function(){
         var lat = dailyData.coord.lat;
         var lon = dailyData.coord.lon;
         var queryURL = buildQueryURLUV(lat,lon);
-        console.log(queryURL);
+        //console.log(queryURL);
         //Ajax call to open weather API
         $.ajax({
             url: queryURL,
